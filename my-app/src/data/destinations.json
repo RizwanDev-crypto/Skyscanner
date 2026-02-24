@@ -1,0 +1,52 @@
+[
+  {
+    "city": "Jeddah",
+    "province": "Mecca Province",
+    "country": "Saudi Arabia"
+  },
+  {
+    "city": "Dubai",
+    "province": "Dubai",
+    "country": "United Arab Emirates"
+  },
+  {
+    "city": "Karachi",
+    "province": "Karāchi District, Sindh",
+    "country": "Pakistan"
+  },
+  {
+    "city": "Lahore",
+    "province": "Punjab",
+    "country": "Pakistan"
+  },
+  {
+    "city": "Islamabad",
+    "province": "Punjab",
+    "country": "Pakistan"
+  },
+  {
+    "city": "London",
+    "province": "England",
+    "country": "United Kingdom"
+  },
+  {
+    "city": "Madinah",
+    "province": "Al Madinah Province",
+    "country": "Saudi Arabia"
+  },
+  {
+    "city": "Mecca",
+    "province": "Mecca Province",
+    "country": "Saudi Arabia"
+  },
+  {
+    "city": "Istanbul",
+    "province": "Istanbul Province",
+    "country": "Türkiye (Turkey)"
+  },
+  {
+    "city": "Kuala Lumpur",
+    "province": "Selangor",
+    "country": "Malaysia"
+  }
+]
