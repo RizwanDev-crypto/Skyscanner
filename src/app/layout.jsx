@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${skyscannerRelative.variable} ${skyscannerRelative.className}`}>
-      <body>
+      <body suppressHydrationWarning>
         <ThemeRegistry>
           <Header />
           {children}

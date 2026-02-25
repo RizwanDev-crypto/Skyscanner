@@ -17,7 +17,7 @@ export default function Home() {
       <HotelsInCountry />
       <HotelCityBreaks />
       <HotelBenefits />
-      <HotelFAQs />
+       <HotelFAQs />
       <TravelOptions />
       <Footer />
     </Box>

@@ -29,3 +29,12 @@ body {
 
   letter-spacing: -0.5px;
 }
+
+@keyframes drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(var(--drift-y));
+  }
+}

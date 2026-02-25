@@ -68,7 +68,7 @@ export default function Footer() {
   return (
     <Box sx={{ bgcolor: "#05203C", pt: 8, pb: 4, color: "#fff" }}>
       <Container maxWidth="lg" >
-        <Grid container spacing={{ xs: 4, md: 16, lg: 27 }} sx={{ mb: 1}}>
+        <Grid container spacing={{ xs: 4, md: 8, lg: 14 }} sx={{ mb: 0 }}>
           {/* Logo/Region Column */}
           <Grid item xs={12} md={4}>
             <Box
@@ -81,16 +81,16 @@ export default function Footer() {
                 "&:hover": { bgcolor: "rgba(255, 255, 255, 0.15)" },
               }}
             >
-              <Typography sx={{ fontSize: "12px", fontWeight: 600 ,}}>
+              <Typography sx={{ fontSize: "12px", fontWeight: 600 }}>
                 Pakistan · English (UK) · Rs PKR
               </Typography>
             </Box>
           </Grid>
 
           {/* Combined Links Columns 1 & 2 */}
-          <Grid item xs={12} md={5}>
-            <Box sx={{ display: "flex", gap: { xs: 14, sm: 4, md: 12, lg: 20 } }}>
-              <Box>
+          <Grid item xs={12} md={4}>
+            <Grid container spacing={12}>
+              <Grid item xs={6}>
                 {column1.map((item) => (
                   <Box key={item} sx={{ mb: 2 }}>
                     <Link
@@ -107,9 +107,9 @@ export default function Footer() {
                     </Link>
                   </Box>
                 ))}
-              </Box>
+              </Grid>
 
-              <Box>
+              <Grid item xs={6}>
                 {column2.map((item) => (
                   <Box key={item} sx={{ mb: 2 }}>
                     <Link
@@ -126,72 +126,73 @@ export default function Footer() {
                     </Link>
                   </Box>
                 ))}
-              </Box>
-            </Box>
+              </Grid>
+            </Grid>
           </Grid>
 
-          <Grid item xs={12} md={3}>
-            {column3Data.map((section) => {
-              const isOpen = openSections[section.name];
-              return (
-                <Box key={section.name} sx={{ mb: 2 }}>
-                  <Box
-                    onClick={() => toggleSection(section.name)}
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      width: "230px",
-                      cursor: "pointer",
-                      mb: isOpen && section.items?.length > 0 ? 2 : 0,
-                      "&:hover": {
-                        "& .text": { textDecoration: "underline" },
-                      },
-                    }}
-                  >
-                    <Typography
-                      className="text"
+          {/* Third Column: Selectors */}
+          <Grid item xs={12} md={4}>
+            <Box sx={{ maxWidth: "330px" }}>
+              {column3Data.map((section) => {
+                const isOpen = openSections[section.name];
+                return (
+                  <Box key={section.name} sx={{ mb: 2 }}>
+                    <Box
+                      onClick={() => toggleSection(section.name)}
                       sx={{
-                        color: "#fff",
-                        fontSize: "15px",
-                        fontWeight: 600,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        cursor: "pointer",
+                        mb: isOpen && section.items?.length > 0 ? 2 : 0,
+                        "&:hover": {
+                          "& .text": { textDecoration: "underline" },
+                        },
                       }}
                     >
-                      {section.name}
-                    </Typography>
-                    {isOpen ? (
-                      <KeyboardArrowUpIcon sx={{ fontSize: "20px" }} />
-                    ) : (
-                      <KeyboardArrowDownIcon sx={{ fontSize: "20px" }} />
+                      <Typography
+                        className="text"
+                        sx={{
+                          color: "#fff",
+                          fontSize: "15px",
+                          fontWeight: 600,
+                        }}
+                      >
+                        {section.name}
+                      </Typography>
+                      {isOpen ? (
+                        <KeyboardArrowUpIcon sx={{ fontSize: "20px" }} />
+                      ) : (
+                        <KeyboardArrowDownIcon sx={{ fontSize: "20px" }} />
+                      )}
+                    </Box>
+
+                    {isOpen && section.items && (
+                      <Box sx={{ pl: 2 }}>
+                        {section.items.map((item, index) => (
+                          <Box
+                            key={item.name}
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "space-between",
+                              mb: index === section.items.length - 1 ? 0 : 2,
+                              cursor: "pointer",
+                              "&:hover": { textDecoration: "underline" },
+                            }}
+                          >
+                            <Typography sx={{ fontSize: "14px", color: "#fff", fontWeight: 600 }}>
+                              {item.name}
+                            </Typography>
+                            {item.hasPlus && <AddIcon sx={{ fontSize: "16px" }} />}
+                          </Box>
+                        ))}
+                      </Box>
                     )}
                   </Box>
-
-                  {isOpen && section.items && (
-                    <Box sx={{ pl: 2 }}>
-                      {section.items.map((item, index) => (
-                        <Box
-                          key={item.name}
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            width: "214px",
-                            mb: index === section.items.length - 1 ? 0 : 2,
-                            cursor: "pointer",
-                            "&:hover": { textDecoration: "underline" },
-                          }}
-                        >
-                          <Typography sx={{ fontSize: "14px", color: "#fff", fontWeight: 600 }}>
-                            {item.name}
-                          </Typography>
-                          {item.hasPlus && <AddIcon sx={{ fontSize: "16px" }} />}
-                        </Box>
-                      ))}
-                    </Box>
-                  )}
-                </Box>
-              );
-            })}
+                );
+              })}
+            </Box>
           </Grid>
         </Grid>
 
