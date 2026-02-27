@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import {
   Box,
   Typography,
@@ -20,7 +20,7 @@ import DestDropdown from "../Hero/DestDropdown";
 import GuestsDropdown from "../Hero/GuestsDropdown";
 import CustomCalendar from "../Hero/CustomCalendar";
 
-export default function SearchForm({ variant = "hero" }) {
+function SearchFormContent({ variant = "hero" }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   
@@ -429,5 +429,13 @@ export default function SearchForm({ variant = "hero" }) {
         </Grid>
       </Box>
     </Paper>
+  );
+}
+
+export default function SearchForm(props) {
+  return (
+    <Suspense fallback={<Box sx={{ height: "70px", backgroundColor: "#05203c", borderRadius: "16px" }} />}>
+      <SearchFormContent {...props} />
+    </Suspense>
   );
 }
