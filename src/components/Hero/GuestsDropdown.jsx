@@ -78,7 +78,7 @@ const GuestsDropdown = ({
     setChildren(newCount);
     setOpenAgeIndex(null);
     if (delta > 0) {
-      setChildAges([...childAges, "12 years old"]);
+      setChildAges([...childAges, "<1 year old"]);
     } else if (delta < 0 && childAges.length > 0) {
       setChildAges(childAges.slice(0, -1));
     }

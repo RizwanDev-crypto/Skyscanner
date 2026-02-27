@@ -20,7 +20,7 @@ const generateMonths = () => {
 };
 const monthsList = generateMonths();
 
-const CustomCalendar = ({ value, onChange, onClose, isOpen, showMonthSelect, setShowMonthSelect }) => {
+const CustomCalendar = ({ value, onChange, onClose, isOpen, showMonthSelect, setShowMonthSelect, minDate = dayjs() }) => {
   if (!isOpen) return null;
   return (
     <Box
@@ -28,14 +28,16 @@ const CustomCalendar = ({ value, onChange, onClose, isOpen, showMonthSelect, set
       sx={{
         position: "absolute",
         top: "85px",
-        left: "50%",
-        transform: "translateX(-50%)",
+        left: { xs: 0, md: "70%" },
+        right: { xs: 0, md: "auto" },
+        transform: { xs: "none", md: "translateX(-50%)" },
         zIndex: 1000,
         backgroundColor: "#fff",
         borderRadius: "12px",
         boxShadow: "0px 8px 30px rgba(0,0,0,0.12)",
         p: 0,
-        width: "350px", 
+        width: { xs: "100%", md: "350px" }, 
+        maxWidth: "350px", // Optional: caps width even on larger containers
         overflow: "visible",
         "&::before": {
           content: '""',
@@ -57,7 +59,7 @@ const CustomCalendar = ({ value, onChange, onClose, isOpen, showMonthSelect, set
           onChange(newValue);
           setShowMonthSelect(false);
         }}
-        minDate={dayjs()}
+        minDate={minDate}
         sx={{
           width: "100%",
           minHeight: "420px", 
