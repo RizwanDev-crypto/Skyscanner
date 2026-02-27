@@ -31,7 +31,7 @@ export default function Hero() {
           zIndex: 1,
         }}
       >
-        <source src="/herovideo/18741009-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+        <source src="/Herovideo/18741009-uhd_3840_2160_30fps.mp4" type="video/mp4" />
       </video>
 
       {/* Dark Overlay for better text readability */}
